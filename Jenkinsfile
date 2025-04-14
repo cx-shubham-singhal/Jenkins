@@ -1,17 +1,17 @@
 pipeline {
     agent any
 
-    // environment {
-    //     CHECKMARX_CREDENTIALS_ID = 'SAST'
-    //     CHECKMARX_USERNAME = credentials('CxUser')
-    //     CHECKMARX_PASSWORD = credentials('CxPass')
-    //     CHECKMARX_PROJECT_NAME = credentials('CxProject')
-    //     CHECKMARX_SERVER_URL = credentials('CxServer')
-    //     CHECKMARX_SCA = credentials('CxSCA')
-    //     CHECKMARX_SCAPASS = credentials('CxSCA')
-    //     PROJECT_NAME = 'SastScaPipeline'
-    //     CHECKMARX_SCA_SERVER_URL = 'https://api-sca.checkmarx.net'
-    // }
+    environment {
+         CHECKMARX_CREDENTIALS_ID = 'SASTCred'
+         CHECKMARX_USERNAME = 'admin@cx'
+         CHECKMARX_PASSWORD = 'Cx123456!'
+        // CHECKMARX_PROJECT_NAME = credentials('CxProject')
+        CHECKMARX_SERVER_URL = 'http://10.33.0.67'
+        // CHECKMARX_SCA = credentials('CxSCA')
+        // CHECKMARX_SCAPASS = credentials('CxSCA')
+        PROJECT_NAME = 'SastScaPipelineshubh'
+        CHECKMARX_SCA_SERVER_URL = 'https://api-sca.checkmarx.net'
+    }
 
     stages {
         stage('Preparation') {
@@ -32,51 +32,51 @@ pipeline {
                 ])
             }
         }
-    //     stage('Checkmarx SAST Scan') {
-    //         steps {
-    //             script {
-    //                 step([
-    //                     $class: 'CxScanBuilder',
-    //                     comment: '',
-    //                     configAsCode: true,
-    //                     credentialsId: env.CHECKMARX_CREDENTIALS_ID,
-    //                     customFields: '',
-    //                     excludeFolders: '',
-    //                     exclusionsSetting: 'global',
-    //                     failBuildOnNewResults: false,
-    //                     failBuildOnNewSeverity: 'CRITICAL',
-    //                     filterPattern: '''
-    //                         !**/_cvs/**/*, !**/.svn/**/*, !**/.hg/**/*, !**/.git/**/*, !**/.bzr/**/*,
-    //                         !**/.gitgnore/**/*, !**/.gradle/**/*, !**/.checkstyle/**/*, !**/.classpath/**/*, !**/bin/**/*,
-    //                         !**/obj/**/*, !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr, !**/*.iws,
-    //                         !**/*.bak, !**/*.tmp, !**/*.aac, !**/*.aif, !**/*.iff, !**/*.m3u, !**/*.mid, !**/*.mp3,
-    //                         !**/*.mpa, !**/*.ra, !**/*.wav, !**/*.wma, !**/*.3g2, !**/*.3gp, !**/*.asf, !**/*.asx,
-    //                         !**/*.avi, !**/*.flv, !**/*.mov, !**/*.mp4, !**/*.mpg, !**/*.rm, !**/*.swf, !**/*.vob,
-    //                         !**/*.wmv, !**/*.bmp, !**/*.gif, !**/*.jpg, !**/*.png, !**/*.psd, !**/*.tif, !**/*.swf,
-    //                         !**/*.jar, !**/*.zip, !**/*.rar, !**/*.exe, !**/*.dll, !**/*.pdb, !**/*.7z, !**/*.gz,
-    //                         !**/*.tar.gz, !**/*.tar, !**/*.gz, !**/*.ahtm, !**/*.ahtml, !**/*.fhtml, !**/*.hdm,
-    //                         !**/*.hdml, !**/*.hsql, !**/*.ht, !**/*.hta, !**/*.htc, !**/*.htd, !**/*.war, !**/*.ear,
-    //                         !**/*.htmls, !**/*.ihtml, !**/*.mht, !**/*.mhtm, !**/*.mhtml, !**/*.ssi, !**/*.stm,
-    //                         !**/*.bin,!**/*.lock,!**/*.svg,!**/*.obj,
-    //                         !**/*.stml, !**/*.ttml, !**/*.txn, !**/*.xhtm, !**/*.xhtml, !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*,
-    //                         !OSADependencies.json, !**/node_modules/**/*, !**/.cxsca-results.json, !**/.cxsca-sast-results.json, !.checkmarx/cx.config
-    //                     ''',
-    //                     fullScanCycle: 10,
-    //                     groupId: '1',
-    //                     password: env.CHECKMARX_PASSWORD,
-    //                     preset: '36',
-    //                     projectLevelCustomFields: '',
-    //                     projectName: 'JavaVulnerableLabE-amol',
-    //                     sastEnabled: true,
-    //                     serverUrl: env.CHECKMARX_SERVER_URL,
-    //                     sourceEncoding: '1',
-    //                     username: env.CHECKMARX_USERNAME,
-    //                     vulnerabilityThresholdResult: 'FAILURE',
-    //                     waitForResultsEnabled: true
-    //                 ])
-    //             }
-    //         }
-    //     }
+        stage('Checkmarx SAST Scan') {
+            steps {
+                script {
+                    step([
+                        $class: 'CxScanBuilder',
+                        comment: '',
+                        configAsCode: true,
+                        credentialsId: env.CHECKMARX_CREDENTIALS_ID,
+                        customFields: '',
+                        excludeFolders: '',
+                        exclusionsSetting: 'global',
+                        failBuildOnNewResults: false,
+                        failBuildOnNewSeverity: 'CRITICAL',
+                        filterPattern: '''
+                            !**/_cvs/**/*, !**/.svn/**/*, !**/.hg/**/*, !**/.git/**/*, !**/.bzr/**/*,
+                            !**/.gitgnore/**/*, !**/.gradle/**/*, !**/.checkstyle/**/*, !**/.classpath/**/*, !**/bin/**/*,
+                            !**/obj/**/*, !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr, !**/*.iws,
+                            !**/*.bak, !**/*.tmp, !**/*.aac, !**/*.aif, !**/*.iff, !**/*.m3u, !**/*.mid, !**/*.mp3,
+                            !**/*.mpa, !**/*.ra, !**/*.wav, !**/*.wma, !**/*.3g2, !**/*.3gp, !**/*.asf, !**/*.asx,
+                            !**/*.avi, !**/*.flv, !**/*.mov, !**/*.mp4, !**/*.mpg, !**/*.rm, !**/*.swf, !**/*.vob,
+                            !**/*.wmv, !**/*.bmp, !**/*.gif, !**/*.jpg, !**/*.png, !**/*.psd, !**/*.tif, !**/*.swf,
+                            !**/*.jar, !**/*.zip, !**/*.rar, !**/*.exe, !**/*.dll, !**/*.pdb, !**/*.7z, !**/*.gz,
+                            !**/*.tar.gz, !**/*.tar, !**/*.gz, !**/*.ahtm, !**/*.ahtml, !**/*.fhtml, !**/*.hdm,
+                            !**/*.hdml, !**/*.hsql, !**/*.ht, !**/*.hta, !**/*.htc, !**/*.htd, !**/*.war, !**/*.ear,
+                            !**/*.htmls, !**/*.ihtml, !**/*.mht, !**/*.mhtm, !**/*.mhtml, !**/*.ssi, !**/*.stm,
+                            !**/*.bin,!**/*.lock,!**/*.svg,!**/*.obj,
+                            !**/*.stml, !**/*.ttml, !**/*.txn, !**/*.xhtm, !**/*.xhtml, !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*,
+                            !OSADependencies.json, !**/node_modules/**/*, !**/.cxsca-results.json, !**/.cxsca-sast-results.json, !.checkmarx/cx.config
+                        ''',
+                        fullScanCycle: 10,
+                        groupId: '1',
+                        password: env.CHECKMARX_PASSWORD,
+                        preset: '36',
+                        projectLevelCustomFields: '',
+                        projectName: 'JavaVulnerableLabE-shubh',
+                        sastEnabled: true,
+                        serverUrl: env.CHECKMARX_SERVER_URL,
+                        sourceEncoding: '1',
+                        username: env.CHECKMARX_USERNAME,
+                        vulnerabilityThresholdResult: 'FAILURE',
+                        waitForResultsEnabled: true
+                    ])
+                }
+            }
+        }
     //     stage('Checkmarx SCA Scan') {
     //         steps {
     //             echo 'Running Checkmarx security scan...'

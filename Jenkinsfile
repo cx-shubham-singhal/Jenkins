@@ -3,12 +3,12 @@ pipeline {
 
     environment {
          CHECKMARX_CREDENTIALS_ID = 'SASTCred'
-         CHECKMARX_USERNAME = 'admin@cx'
-         CHECKMARX_PASSWORD = 'Cx123456!'
+         CHECKMARX_USERNAME = credentials('CxSASTUser')
+         CHECKMARX_PASSWORD = credentials('CxSASTPassword')
         // CHECKMARX_PROJECT_NAME = credentials('CxProject')
         CHECKMARX_SERVER_URL = 'http://10.33.0.67'
-        CHECKMARX_SCA = 'UmeshW'
-        CHECKMARX_SCAPASS = 'DEVcx78$'
+        CHECKMARX_SCA = credentials('CxSCAUser')
+        CHECKMARX_SCAPASS = credentials('CxSASTPassword')
         PROJECT_NAME = 'SastScaPipelineshubh'
         CHECKMARX_SCA_SERVER_URL = 'https://api-sca.checkmarx.net'
     }

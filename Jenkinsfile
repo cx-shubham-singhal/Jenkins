@@ -72,6 +72,7 @@ pipeline {
                         sourceEncoding: '1',
                         username: env.CHECKMARX_USERNAME,
                         vulnerabilityThresholdResult: 'FAILURE',
+                        generatePdfReport: true,
                         waitForResultsEnabled: true
                     ])
                 }

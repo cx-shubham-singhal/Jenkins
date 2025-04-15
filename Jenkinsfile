@@ -28,7 +28,9 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/vbarhate/JavaVulnerableLabE.git']]
+                    //userRemoteConfigs: [[url: 'https://github.com/vbarhate/JavaVulnerableLabE.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/SonarSource/sonar-plugin-api.git']]
+                         
                 ])
             }
         }

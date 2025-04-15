@@ -126,6 +126,7 @@ pipeline {
                 ''',
                 fullScanCycle: 10,
                 generateScaReport: true,
+                scaReportFormat: 'PDF',
                 projectName: env.PROJECT_NAME,
                 serverUrl: env.CHECKMARX_SERVER_URL,
                 sastEnabled: false,

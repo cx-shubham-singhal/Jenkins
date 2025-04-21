@@ -9,7 +9,7 @@ pipeline {
         CHECKMARX_SERVER_URL = 'http://10.33.0.67'
         CHECKMARX_SCA = credentials('CxSCAUser')
         CHECKMARX_SCAPASS = credentials('CxSASTPassword')
-        PROJECT_NAME = 'SastScaPipelineshubh'
+        PROJECT_NAME = 'SastScaPipelineFinalTest'
         CHECKMARX_SCA_SERVER_URL = 'https://api-sca.checkmarx.net'
     }
 

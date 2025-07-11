@@ -8,7 +8,7 @@ pipeline {
         // CHECKMARX_PROJECT_NAME = credentials('CxProject')
         CHECKMARX_SERVER_URL = 'http://10.33.0.67'
         CHECKMARX_SCA = credentials('CxSCAUser')
-        CHECKMARX_SCAPASS = credentials('CxSASTPassword')
+        CHECKMARX_SCAPASS = credentials('CxSCAPassword')
         PROJECT_NAME = 'SastScaPipelineshubh'
         CHECKMARX_SCA_SERVER_URL = 'https://api-sca.checkmarx.net'
     }
@@ -28,8 +28,8 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
-                    //userRemoteConfigs: [[url: 'https://github.com/vbarhate/JavaVulnerableLabE.git']]
-                    userRemoteConfigs: [[url: 'https://github.com/SonarSource/sonar-plugin-api.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/vbarhate/JavaVulnerableLabE.git']]
+                    //userRemoteConfigs: [[url: 'https://github.com/SonarSource/sonar-plugin-api.git']]
                          
                 ])
             }

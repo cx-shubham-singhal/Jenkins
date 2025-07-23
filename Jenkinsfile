@@ -49,7 +49,7 @@ pipeline {
             fsaVariables: '',
             osaArchiveIncludePatterns: '*.zip, *.war, *.ear, *.tgz',
             overrideGlobalConfig: true,
-            pathToScaResolver: 'C:\\Work\\SCA\\ScaResolver-win64',
+            pathToScaResolver: 'C:\\plugins\\ScaResolver',
             scaAccessControlUrl: 'https://platform.checkmarx.net',
             scaCredentialsId: 'CxSCA',
             scaServerUrl: env.CHECKMARX_SCA_SERVER_URL,
